@@ -12,6 +12,8 @@ import {SearchComponent} from './search/search.component';
 import {ProductService} from './shared/product.service';
 import {Router, RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {Http, HttpModule} from "@angular/http";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import {FormsModule} from "@angular/forms";
       {path: '', component: HomeComponent},
       {path: 'products/:productId', component: ProductDetailComponent}
     ]),
-    FormsModule
+    FormsModule,
+    HttpModule,
+    HttpClientModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
