@@ -1,10 +1,19 @@
 import {Injectable} from '@angular/core';
 import {Product} from './product';
+import {Http} from "@angular/http";
+
 
 @Injectable()
 export class ProductService {
 
+  constructor(private a:Http){}
+
   getProducts(): Product[] {
+    this.a.get("http://localhost:8080/getProducts").subscribe(
+      value => value.json(),
+      error2 => console.log("there is some error" + error2),
+      () => console.log("getProducts completed.")
+    )
     return products;
   }
 
