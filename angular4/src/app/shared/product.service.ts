@@ -14,10 +14,15 @@ export class ProductService {
 
   private observe: null;
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get("http://localhost:8080/getProducts").map(value => {
+  getProducts()
+  // : Observable<Product[]>
+  {
+    return this.http.get("http://localhost:8080/getProducts").map(value =>
+    /*{
       return value.json()
-    }).catch(err => Observable.throw(err)
+    }*/
+    value.json()
+    ).catch(err => Observable.throw(err)
     );
   }
 
@@ -34,6 +39,7 @@ export class ProductService {
       }
     })
       .map(value => {
+          console.log(("get product by id " + value.json()));
           return value.json();
         }
       ).catch(err => Observable.throw(err)
