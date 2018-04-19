@@ -22,13 +22,15 @@ export class ProductService {
   }
 
   getProductById(productId: number): Observable<Product> {
-    let params = new URLSearchParams();
-    params.set('id', productId.toString());
-    let myHeaders = new Headers();
-    myHeaders.set('Content-Type', 'application/json');
+    /*let params = new URLSearchParams();
+    params.set('id', productId.toString());*/
+
+    /*let myHeaders = new Headers();
+    myHeaders.set('Content-Type', 'application/json');*/
+
     return this.http.get('http://localhost:8080/getProductById', {
       params: {
-        id: '0'
+        id: productId
       }
     })
       .map(value => {
